@@ -1,22 +1,7 @@
 <div class="container">
   <h1>Add a new task</h1>
 
-  <%= form_for @task do |f|  %>
-    <p><%= f.label :title, "Title"%></p>
-    <p><%= f.text_field :title, class: "form-control" %></p>
-    <p><%= f.label :details, "Details" %></p>
-    <p><%= f.text_area :details, class: "form-control" %></p>
-
-    <% unless @task.new_record? %>
-      <p>
-        <%= f.check_box :completed%>
-        <%= f.label :completed, "Completed" %>
-      </p>
-    <% end %>
-
-    <p><%= f.submit "Update", class: "btn btn-primary"  %></p>
-
-  <% end %>
+  <%= render 'form', task: @task %>
 
   <hr class="solid">
   <%= link_to tasks_path do %>
